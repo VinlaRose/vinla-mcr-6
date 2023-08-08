@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { DataContext } from "../../context/context"
 import { useNavigate } from "react-router-dom";
+import "./LandingPage.css"
 
 export const LandingPage = () => {
     const {state, dispatch} = useContext(DataContext);
@@ -19,29 +20,45 @@ export const LandingPage = () => {
         navigate(`/${name}`)
     }
     return (
-        <div>
+        <div className="homeConatiner">
             <h1>Food Ordering App</h1>
             <h3>Select Your Cuisine</h3>
 
             {
                 state.cuisines.map(item => (
-                    <button key={item.id} onClick={() => clickCuisine(item.id)} >{item.name}</button>
+                    <button className="cuisineBTN" key={item.id} onClick={() => clickCuisine(item.id)} >{item.name}</button>
                 ))
             }
 
-            <div className="restaurants-list">
+            <div>
 
             {
-                displayRestaurants.map(item => (
-                    <div key={item.id} >
-                        <h3 onClick={() => goToRestaurant(item, item.name) }>{item.name}</h3>
+                displayRestaurants.map(restaurant => (
+                    <div key={restaurant.id} >
+                        <div className="restaurant-name" onClick={() => goToRestaurant(restaurant, restaurant.name) }>
+                            Dishes by {restaurant.name}</div>
+
+                        <div className="restaurants-list">
                         {
-                            item.menu.map(item => (
+                            restaurant.menu.map(item => (
                                 <div key={item.name}>
-                                    {item.name}
+                                   
+                                    <div className="card">
+      <div className="image-container">
+        <img src={item.imgSrc} alt="" />
+      </div>
+      <div className="content">
+        <h3 className="name">{item.name}</h3>
+        <p className="price">${item.price}</p>
+        <p className="restaurant">{restaurant.name}</p>
+      </div>
+    </div>
                                 </div>
+
                             ))
                         }
+                        </div>
+                       
                     
                     </div>
                 ))

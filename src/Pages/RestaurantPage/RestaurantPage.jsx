@@ -10,7 +10,7 @@ export const RestaurantPage = () =>{
 
     
     
-    // const restaurant = state.currentRestaurantShowing;
+
 
     const restaurant = state.restaurants.find(item => item.name === state.currentRestaurantShowing.name)
 
@@ -37,9 +37,13 @@ export const RestaurantPage = () =>{
     }
 
     return(
-        <div>
-            
-            <h1>{name}</h1>
+        <div className="restaurantPageWrapper" >
+
+            <div className="restoDetailsWrapper">
+                <div className="restoHeading">
+                {name}
+                </div>
+           
             <div className="restaurantDetails">
                 <div className="restoDeatilsLeft">
                 <p className="details">{address}</p>
@@ -47,13 +51,13 @@ export const RestaurantPage = () =>{
                 </div>
 
                 <div className="addReview">
-                    <button onClick={showModal}   >Add Review</button>
+                    <button onClick={showModal} className="addRevBtn"   >Add Review</button>
                 </div>
                 
             </div>
 
             <div className="reviewsContainer">
-                <h2>Reviews</h2>
+                <h2 className="reviewHead">Reviews</h2>
 
                 {
                     ratings.map(item => (
@@ -78,6 +82,9 @@ export const RestaurantPage = () =>{
                 }
             
             </div>
+            </div>
+            
+           
 
             {
                 openModal && <ReviewModal onClose={onClose} onSave={onSave}/>

@@ -1,15 +1,43 @@
+
+.restaurantPageWrapper{
+  margin: 20px;
+  text-align: center;
+}
+
+.restoDetailsWrapper{
+margin: 40px;
+padding: 20px;
+}
+
+.restoHeading{
+  text-align: left;
+  font-weight: 400;
+  font-size: 3rem;
+}
+
 .restaurantDetails{
     display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+    text-align: left;
+    color: grey;
     
 }
-
-/* .restoDeatilsLeft{
-
+.restoDeatilsLeft p{
+  margin: 0;
+  padding-top: 0;
 }
 
-.addReview{
-   
-} */
+.addRevBtn{
+  padding: 10px;
+    margin: 10px;
+    background-color: 
+    #ef476f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
 
 
 .review-container {
@@ -17,9 +45,13 @@
     margin: 20px;
     border-bottom: 1px solid #ddd;
     padding: 10px;
-    width: 80%;
+    
+    text-align: center;
   }
   
+  .reviewHead{
+    text-align: left;
+  }
   .profile-image img {
     width: 40px;
     height: 40px;
@@ -49,9 +81,11 @@
     background-color: green;
     padding: 4px;
     border-radius: 5px;
+    margin-right: 30px;
   }
   
   .review-description {
     margin-top: 10px;
+    text-align: left;
   }
   

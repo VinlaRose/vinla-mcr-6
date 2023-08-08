@@ -32,7 +32,7 @@ const ReviewModal = ({ onClose, onSave }) => {
         </span>
         <h2>Add Review</h2>
         <div className="form-group">
-          <label>Reviewer's Name:</label>
+          <label>Your Name:</label>
           <input
             type="text"
             value={reviewerName}
@@ -40,7 +40,7 @@ const ReviewModal = ({ onClose, onSave }) => {
           />
         </div>
         <div className="form-group">
-          <label>Star Rating:</label>
+          <label>Rating:</label>
           <select value={starRating} onChange={(e) => setStarRating(parseInt(e.target.value))}>
             {[1, 2, 3, 4, 5].map((number) => (
               <option key={number} value={number}>
