@@ -33,7 +33,17 @@ export const RestaurantPage = () =>{
       : item
   );
         console.log(updateData);
-        dispatch({type:"UPDATE" , payload: updateData})
+
+        const updateRatings = updateData.map(item =>
+            item.name === restaurant.name
+              ? {
+                  ...item,
+                  averageRating: item.ratings.reduce((acc, curr) => acc + curr.rating, 0) / item.ratings.length
+                }
+              : item
+          );
+          
+        dispatch({type:"UPDATE" , payload: updateRatings})
     }
 
     return(
