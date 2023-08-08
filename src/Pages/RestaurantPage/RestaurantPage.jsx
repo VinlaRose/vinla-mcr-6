@@ -2,19 +2,20 @@ import { useContext, useState } from "react"
 import { DataContext } from "../../context/context";
 import "./RestaurantPage.css"
 import ReviewModal from "../../components/Modal/Modal";
+import { useNavigate } from "react-router-dom";
 
 export const RestaurantPage = () =>{
 
     const {state, dispatch} = useContext(DataContext);
     const [openModal, setOpenModal] = useState(false);
 
-    
+    const navigate = useNavigate();
     
 
 
     const restaurant = state.restaurants.find(item => item.name === state.currentRestaurantShowing.name)
 
-    const {name, id, menu, phone, ratings,description, cuisine_id, averageRating, address} = restaurant;
+    const {name,  ratings,averageRating, address} = restaurant;
     const showModal = () => {
         setOpenModal(true)
     }
@@ -26,13 +27,12 @@ export const RestaurantPage = () =>{
     const onSave = (reviewData) => {
         
         setOpenModal(false);
-        console.log(reviewData);
         const updateData = state.restaurants.map((item) =>
     item.name === restaurant.name
       ? { ...item, ratings: [...item.ratings, reviewData] }
       : item
   );
-        console.log(updateData);
+        
 
         const updateRatings = updateData.map(item =>
             item.name === restaurant.name
@@ -48,6 +48,9 @@ export const RestaurantPage = () =>{
 
     return(
         <div className="restaurantPageWrapper" >
+            <div className="back-arrow" onClick={() => navigate("/")}>
+      &larr;
+    </div>
 
             <div className="restoDetailsWrapper">
                 <div className="restoHeading">

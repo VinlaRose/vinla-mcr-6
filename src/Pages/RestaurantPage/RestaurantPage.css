@@ -2,10 +2,11 @@
 .restaurantPageWrapper{
   margin: 20px;
   text-align: center;
+  
 }
 
 .restoDetailsWrapper{
-margin: 40px;
+margin: 60px;
 padding: 20px;
 }
 
@@ -89,3 +90,17 @@ padding: 20px;
     text-align: left;
   }
   
+
+.back-arrow {
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  font-size: 35px;
+  color: grey;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
+}
